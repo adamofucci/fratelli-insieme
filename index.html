@@ -85,14 +85,24 @@
     <script>
         function loadGallery() {
             const gallery = document.getElementById('gallery');
-            for (let i = 1; i <= 10; i++) { // Assumiamo un massimo di 10 immagini
+            const images = [
+                'foto1.jpg',
+                'foto2.jpg',
+                'foto3.jpg',
+                'foto4.jpg',
+                'aiuto_senzatetto.jpg',
+                'volontari_azione.jpg' // Aggiungi qui il nome delle tue immagini
+            ];
+
+            images.forEach(imageName => {
                 let img = new Image();
-                img.src = `images/foto${i}.jpg`;
-                img.alt = `Galleria ${i}`;
+                img.src = `images/${imageName}`;
+                img.alt = `Immagine della galleria`;
                 img.onerror = function() { this.style.display = 'none'; };
                 gallery.appendChild(img);
-            }
+            });
         }
+
         window.onload = loadGallery;
     </script>
 </head>
