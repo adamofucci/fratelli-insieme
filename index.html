@@ -13,7 +13,7 @@
             padding: 0;
         }
         header {
-            background-color: #E94E1B;
+            background: linear-gradient(to right, #1E3F66, #87CEFA);
             color: white;
             padding: 20px;
             text-align: center;
@@ -45,6 +45,10 @@
             border-radius: 5px;
             display: inline-block;
             margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .donate:hover {
+            background-color: #5C8E00;
         }
         .footer {
             background-color: #1E3F66;
@@ -53,7 +57,44 @@
             padding: 15px;
             margin-top: 20px;
         }
+        .testimonials {
+            background-color: #f4f4f4;
+            padding: 24px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+            margin-top: 20px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 200px;
+            height: auto;
+            border-radius: 5px;
+        }
     </style>
+    <script>
+        function loadGallery() {
+            const gallery = document.getElementById('gallery');
+            for (let i = 1; i <= 10; i++) { // Assumiamo un massimo di 10 immagini
+                let img = new Image();
+                img.src = `images/foto${i}.jpg`;
+                img.alt = `Galleria ${i}`;
+                img.onerror = function() { this.style.display = 'none'; };
+                gallery.appendChild(img);
+            }
+        }
+        window.onload = loadGallery;
+    </script>
 </head>
 <body>
     <header>
@@ -63,12 +104,15 @@
     <nav>
         <a href="#missione">La Nostra Missione</a>
         <a href="#donazioni">Dona Ora</a>
+        <a href="#testimonianze">Testimonianze</a>
+        <a href="#galleria">Galleria</a>
         <a href="#contatti">Contatti</a>
     </nav>
     <div class="container" id="missione">
         <h2>La Nostra Missione</h2>
         <p>Offriamo cibo, rifugio e supporto ai senzatetto di Roma, lavorando insieme per un futuro migliore.</p>
-        <img src="missione.jpg" alt="Aiuto ai senzatetto" width="100%">
+        <img src="images/aiuto_senzatetto.jpg" alt="Aiuto ai senzatetto" width="100%">
+        <img src="images/volontari_azione.jpg" alt="Volontari in azione" width="100%">
     </div>
     <div class="container" id="donazioni">
         <h2>Fai una Donazione</h2>
@@ -76,11 +120,22 @@
         <p><strong>IT79V0832703212000000018288</strong></p>
         <a href="#" class="donate">Dona Ora</a>
     </div>
+    <div class="testimonials" id="testimonianze">
+        <h2>Testimonianze</h2>
+        <p>"Grazie all'Associazione Fratelli Insieme, ho avuto un pasto caldo e un posto sicuro dove dormire." - Marco</p>
+        <p>"Questa associazione mi ha dato speranza e un aiuto concreto nei momenti più difficili." - Anna</p>
+    </div>
+    <div class="container" id="galleria">
+        <h2>Galleria</h2>
+        <div class="gallery" id="gallery"></div>
+    </div>
     <div class="container" id="contatti">
         <h2>Contattaci</h2>
         <p>Email: info@fratelliinsieme.it</p>
         <p>Telefono: +39 06 1234567</p>
         <p>Seguici su Facebook: <a href="https://www.facebook.com/AssociazioneFratelliInsieme" target="_blank">Associazione Fratelli Insieme</a></p>
+        <h3>Dove Trovarci</h3>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434508616!2d12.496365!3d41.902783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f604af77c7e21%3A0x391de8a8d232bb0!2sRoma!5e0!3m2!1sit!2sit!4v1643998070123!5m2!1sit!2sit"></iframe>
     </div>
     <div class="footer">
         <p>&copy; 2025 Associazione Fratelli Insieme - Tutti i diritti riservati</p>
